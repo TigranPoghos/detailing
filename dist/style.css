@@ -1495,9 +1495,6 @@ body.active {
   flex-direction: column;
   align-items: center;
 }
-.nano__slider {
-  display: none;
-}
 .nano__title {
   font-family: var(--font-family);
   font-weight: 600;
@@ -1549,7 +1546,7 @@ body.active {
 .nano__blog-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: start;
   gap: 14px;
 }
 .nano__blog-more {
@@ -2625,12 +2622,6 @@ body.active {
   }
   .nano__item img {
     max-width: 330px;
-  }
-  .nano__slider {
-    display: flex;
-  }
-  .nano__blog-buttons {
-    display: none;
   }
   .krytex__top {
     display: none;

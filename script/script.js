@@ -46,12 +46,6 @@ document.addEventListener("DOMContentLoaded", function(){
         spaceBetween: 10,
     });
 
-    //свайпер блог
-    var swiperNano = new Swiper(".nano__slider", {
-        slidesPerView: 'auto',
-        spaceBetween: 0,
-    });
-
     //свайпер gallery
     var swiperKrytex = new Swiper(".mySwiperKrytex", {
         slidesPerView: 'auto',
@@ -206,7 +200,7 @@ document.addEventListener("DOMContentLoaded", function(){
     //попап Консультация
     const popup = document.querySelector('.popup__consultation');
     const openButtons = document.querySelectorAll('[data-popup="consultation"]');
-    const closeButton = popup.querySelector('.popup__close');
+    const closeButton = popup?.querySelector('.popup__close');
 
     openButtons.forEach(btn => {
         btn.addEventListener('click', (e) => {
@@ -236,7 +230,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
     const popupBook = document.querySelector('.popup__book');
     const openButtonsBook = document.querySelectorAll('[data-popup="book"]');
-    const closeButtonBook = popupBook.querySelector('.popup__close-book');
+    const closeButtonBook = popupBook?.querySelector('.popup__close-book');
 
     openButtonsBook.forEach(btn => {
         btn.addEventListener('click', (e) => {
