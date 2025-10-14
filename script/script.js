@@ -1,5 +1,8 @@
 document.addEventListener("DOMContentLoaded", function(){
+
     
+
+
     
     //галерея
     const marquee = document.querySelector('.marquee');
@@ -16,6 +19,7 @@ document.addEventListener("DOMContentLoaded", function(){
     const burger__jsBody = document.querySelector('.header__burger')
     const body = document.querySelector('body')
     const opacite = document.querySelector('.opacite')
+    const opaciteMain = document.querySelector('.opacite-main')
     burger__js.addEventListener('click', function(){
         burger__jsBody.classList.toggle('active')
         body.classList.toggle('active')
@@ -27,11 +31,12 @@ document.addEventListener("DOMContentLoaded", function(){
     const isClickOnBurger = e.composedPath().includes(burger__js);
     const isClickOnBurgerMenu = e.composedPath().includes(burger__jsBody);
 
-        if (!isClickOnBurger && !isClickOnBurgerMenu) {
+    const isMenuOpen = burger__jsBody.classList.contains('active');
+        if (isMenuOpen && !isClickOnBurger && !isClickOnBurgerMenu) {
             burger__jsBody.classList.remove('active');
             body.classList.remove('active');
             opacite.classList.remove('active');
-            burger__js.classList.remove('open')
+            burger__js.classList.remove('open');
         }
     });
 
@@ -39,6 +44,18 @@ document.addEventListener("DOMContentLoaded", function(){
     var swiper = new Swiper(".mySwiper", {
         slidesPerView: 'auto',
         spaceBetween: 10,
+    });
+
+    //свайпер блог
+    var swiperNano = new Swiper(".nano__slider", {
+        slidesPerView: 'auto',
+        spaceBetween: 0,
+    });
+
+    //свайпер gallery
+    var swiperKrytex = new Swiper(".mySwiperKrytex", {
+        slidesPerView: 'auto',
+        spaceBetween: 5,
     });
 
 
@@ -102,6 +119,210 @@ document.addEventListener("DOMContentLoaded", function(){
             });
         }
     }
+
+
+
+
+    //блог
+    const filterButtons = document.querySelectorAll('.nano__blog-buttons-item');
+    const blogItems = document.querySelectorAll('.nano__item');
+    const loadMoreButtonBlog = document.querySelector('.nano__blog-more');
+    
+    function getItemsPerPage() {
+        return window.innerWidth < 1440 ? 8 : 9;
+    }
+    
+    let currentFilter = 'all';
+    let currentVisibleCount = 0;
+    
+    function applyFilter(filterId) {
+        currentFilter = filterId;
+        currentVisibleCount = 0;
+        
+        blogItems.forEach(item => item.classList.add('hidden'));
+
+        loadMoreItems();
+        
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        filterButtons.forEach(btn => {
+            btn.classList.remove('active');
+            if (btn.getAttribute('data-category') === filterId) {
+                btn.classList.add('active');
+            }
+        });
+    }
+    
+    function loadMoreItems() {
+        const itemsPerPage = getItemsPerPage();
+        const filteredItems = currentFilter === 'all' 
+            ? blogItems 
+            : Array.from(blogItems).filter(item => item.id === currentFilter);
+        
+        let itemsShown = 0;
+        
+        filteredItems.forEach((item, index) => {
+            if (index >= currentVisibleCount && index < currentVisibleCount + itemsPerPage) {
+                item.classList.remove('hidden');
+                itemsShown++;
+            }
+        });
+        
+        currentVisibleCount += itemsShown;
+        if (loadMoreButtonBlog) {
+            if (currentVisibleCount >= filteredItems.length) {
+                loadMoreButtonBlog.style.display = 'none';
+            } else {
+                loadMoreButtonBlog.style.display = 'block';
+            }
+        }
+    }
+
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const category = this.getAttribute('data-category');
+            applyFilter(category);
+        });
+    });
+    
+    if (loadMoreButtonBlog) {
+        loadMoreButtonBlog.addEventListener('click', loadMoreItems);
+    }
+
+    let resizeTimeout;
+    window.addEventListener('resize', function() {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(function() {
+            applyFilter(currentFilter);
+        }, 250);
+    });
+
+    applyFilter('all');
+
+
+
+
+    
+
+    //попап Консультация
+    const popup = document.querySelector('.popup__consultation');
+    const openButtons = document.querySelectorAll('[data-popup="consultation"]');
+    const closeButton = popup.querySelector('.popup__close');
+
+    openButtons.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            popup.classList.add('active');
+            body.classList.add('active')
+            opaciteMain.classList.add('active')
+        });
+    });
+
+    closeButton?.addEventListener('click', () => {
+        popup.classList.remove('active');
+        body.classList.remove('active')
+        opaciteMain.classList.remove('active')
+    });
+
+    document.addEventListener('click', (e) => {
+    const isPopupOpen = popup.classList.contains('active');
+    const isClickOutside = !popup.contains(e.target) && !e.target.closest('[data-popup="consultation"]');
+    
+        if (isPopupOpen && isClickOutside) {
+            popup.classList.remove('active');
+            body.classList.remove('active');
+            opaciteMain.classList.remove('active');
+        }
+    });
+
+    const popupBook = document.querySelector('.popup__book');
+    const openButtonsBook = document.querySelectorAll('[data-popup="book"]');
+    const closeButtonBook = popupBook.querySelector('.popup__close-book');
+
+    openButtonsBook.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            popupBook.classList.add('active');
+            body.classList.add('active')
+            opaciteMain.classList.add('active')
+        });
+    });
+
+    closeButtonBook?.addEventListener('click', () => {
+        popupBook.classList.remove('active');
+        body.classList.remove('active')
+        opaciteMain.classList.remove('active')
+    });
+
+    document.addEventListener('click', (e) => {
+    const isPopupBookOpen = popupBook.classList.contains('active');
+    const isClickOutside = !popupBook.contains(e.target) && !e.target.closest('[data-popup="book"]');
+    
+        if (isPopupBookOpen && isClickOutside) {
+            popupBook.classList.remove('active');
+            body.classList.remove('active');
+            opaciteMain.classList.remove('active');
+        }
+    });
+
+
+
+
+
+
+    const selects = document.querySelectorAll('.popup__form-select');
+
+    selects.forEach(select => {
+        const changeBox = select.nextElementSibling;
+
+        select.addEventListener('click', (e) => {
+            e.stopPropagation();
+            document
+                .querySelectorAll('.popup__form-select-change.active')
+                .forEach(opened => {
+                    if (opened !== changeBox) opened.classList.remove('active');
+                });
+            changeBox.classList.toggle('active');
+        });
+
+        changeBox.querySelectorAll('span').forEach(span => {
+            span.addEventListener('click', () => {
+                const value = span.textContent.trim();
+
+                const buttonSpans = select.querySelectorAll('span');
+                buttonSpans.forEach(s => {
+                    s.classList.toggle('active', s.textContent.trim() === value);
+                });
+
+                changeBox.querySelectorAll('span').forEach(s => {
+                    s.classList.toggle('active', s.textContent.trim() !== value);
+                });
+
+                changeBox.classList.remove('active');
+            });
+        });
+    });
+
+    document.addEventListener('click', (e) => {
+        if (!e.target.closest('.popup__form-group')) {
+            document
+                .querySelectorAll('.popup__form-select-change.active')
+                .forEach(box => box.classList.remove('active'));
+        }
+    });
+
+    document.addEventListener('click', (e) => {
+        if (
+            !e.target.closest('.popup__form-select') &&
+            !e.target.closest('.popup__form-select-change')
+        ) {
+            document
+            .querySelectorAll('.popup__form-select-change.active')
+            .forEach(box => box.classList.remove('active'));
+        }
+    });
+
+
+
 
 
 })
