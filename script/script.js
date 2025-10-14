@@ -41,4 +41,67 @@ document.addEventListener("DOMContentLoaded", function(){
         spaceBetween: 10,
     });
 
+
+    //смена языка
+    const languageSvg = document.querySelector('.header__language-svg')
+    const languageButton = document.querySelector('.header__language-button')
+    const languageContainer = document.querySelector('.header__language-container')
+    const languageFlag = document.querySelectorAll('.header__language-flag')
+    const languageName = document.querySelectorAll('.header__language-name')
+    const languageChange = document.querySelector('.header__language-change')
+
+    languageButton.addEventListener('click', () => {
+        languageSvg.classList.toggle('active')
+        languageContainer.classList.toggle('active')
+    })
+
+    languageChange.addEventListener('click', () => {
+        languageFlag.forEach(flag => {
+            flag.classList.toggle('active')
+        })
+        languageName.forEach(name => {
+            name.classList.toggle('active')
+        })
+        languageContainer.classList.remove('active')
+        languageSvg.classList.remove('active')
+    })
+
+    document.addEventListener('click', (e) => {
+    const isClickInsideButton = e.target.closest('.header__language-button')
+    const isClickInsideContainer = e.target.closest('.header__language-container')
+    
+        if (!isClickInsideButton && !isClickInsideContainer) {
+            languageContainer.classList.remove('active')
+            languageSvg.classList.remove('active')
+        }
+    })
+
+
+    //показать больше
+    const additionalItems = document.querySelectorAll('.additional__item');
+    const loadMoreButton = document.querySelector('.additional__item-more');
+
+    if (loadMoreButton) {
+        const itemsToShow = 3; 
+        if (additionalItems.length <= itemsToShow) {
+            loadMoreButton.style.display = 'none';
+        } else {
+            additionalItems.forEach((item, index) => {
+                if (index >= itemsToShow) {
+                    item.style.display = 'none';
+                }
+            });
+            loadMoreButton.addEventListener('click', function() {
+                const hiddenItems = Array.from(additionalItems).filter(item => 
+                    item.style.display === 'none'
+                );
+                hiddenItems.forEach(item => {
+                    item.style.display = '';
+                });
+                loadMoreButton.style.display = 'none';
+            });
+        }
+    }
+
+
 })
