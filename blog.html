@@ -17,7 +17,7 @@
         <div class="container">
             <div class="header__row row">
                 <div class="header__logo">
-                    <a href="#"><img src="image/logo.svg" alt=""></a>
+                    <a href="index.html"><img src="image/logo.svg" alt=""></a>
                     <p class="header__logo-text">Everything about car care - turnkey and headache-free</p>
                 </div>
                 <div class="header__right">
@@ -75,6 +75,7 @@
         </div>
     </header>
     <main class="main">
+        <div class="opacite-main"></div>
         <div class="nano">
             <div class="container">
                 <div class="nano__row row">
@@ -196,6 +197,120 @@
                 </div>
             </div>
         </div>
+        <div class="popup__consultation">
+            <div class="popup">
+                <h3 class="popup__title">Get your free consultation from a professional detailing expert</h3>
+                <form class="popup__form">
+                    <div class="popup__form-group">
+                        <input type="text" id="fullName" placeholder="Full name" required>
+                    </div>
+                    <div class="popup__form-group">
+                        <label for="phone">
+                            <svg width="18" height="14" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M9 0.5H5.5V5.5H0V8.5H5.5V13.5H9V8.5H18V5.5H9V0.5Z" fill="#003580" />
+                            </svg>
+                        </label>
+                        <input type="tel" id="phone" placeholder="+358 (999) 999 99 99" required>
+                    </div>
+                    <p class="popup__form-text">Subscrube to offers and updates</p>
+                    <div class="popup__checkbox-group">
+                        <input type="checkbox" id="subscribe" required>
+                        <label for="subscribe" class="popup__checkbox-label">
+                            <span class="popup__custom-box" aria-hidden="true">
+                                <svg class="popup-custom-check" width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                    <path d="M2.08203 4.99999L4.16536 7.08332L8.33203 2.91666" stroke="#057575" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </span>
+                            <span>Sign me up for exclusive offers and updates from NanoMeikki</span>
+                        </label>
+                    </div>
+                    <button type="submit" class="popup__button">Send</button>
+                </form>
+                <button>
+                    <svg class="popup__close" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M28.125 11.875L11.875 28.125M11.875 11.875L28.125 28.125" stroke="#057575" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div class="popup__book">
+            <div class="popup">
+                <h3 class="popup__title">Book an appointment here or request an offer</h3>
+                <form action="#" class="popup__form">
+                    <div class="popup__form-group popup__form-group-half" style="margin-right: 4px;">
+                        <p class="popup__form-text">Choose a service</p>
+                        <button class="popup__form-select">
+                            <span class="active">Exterior washing</span>
+                            <span>Premium washing</span>
+                            <span>Ceramic coating</span>     
+                            <svg width="10" height="7" viewBox="0 0 10 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4.20759 6.47063C4.6079 6.99064 5.3921 6.99064 5.79241 6.47063L8.95678 2.35999C9.46297 1.70243 8.99421 0.75 8.16437 0.75H1.83563C1.00579 0.75 0.537025 1.70243 1.04322 2.35999L4.20759 6.47063Z" fill="#057575" />
+                            </svg>
+                        </button>
+                        <div class="popup__form-select-change">
+                            <span>Exterior washing</span>
+                            <span class="active">Premium washing</span>
+                            <span class="active">Ceramic coating</span>   
+                        </div>
+                    </div>
+                    <div class="popup__form-group popup__form-group-half">
+                        <p class="popup__form-text">Choose a car</p>
+                        <button class="popup__form-select">
+                            <span class="active">Sedan</span>  
+                            <span>Van</span>   
+                            <span>Kupe</span>   
+                            <svg width="10" height="7" viewBox="0 0 10 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4.20759 6.47063C4.6079 6.99064 5.3921 6.99064 5.79241 6.47063L8.95678 2.35999C9.46297 1.70243 8.99421 0.75 8.16437 0.75H1.83563C1.00579 0.75 0.537025 1.70243 1.04322 2.35999L4.20759 6.47063Z" fill="#057575" />
+                            </svg>
+                        </button>
+                        <div class="popup__form-select-change">
+                            <span>Sedan</span>  
+                            <span class="active">Van</span> 
+                            <span class="active">Kupe</span> 
+                        </div>
+                    </div>
+                    <div class="popup__form-group popup__form-group-half" style="margin-right: 4px;">
+                        <p class="popup__form-text">Full name</p>
+                        <input type="text" id="fullName" placeholder="Full name" required>
+                    </div>
+                    <div class="popup__form-group popup__form-group-half">
+                        <p class="popup__form-text">Phone number</p>
+                        <label for="phone">
+                            <svg width="18" height="14" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M9 0.5H5.5V5.5H0V8.5H5.5V13.5H9V8.5H18V5.5H9V0.5Z" fill="#003580" />
+                            </svg>
+                        </label>
+                        <input class="popup__form-group-tel" type="tel" id="phone" placeholder="+358 (999) 999 99 99" required>
+                    </div>
+                    <div class="popup__form-group" style="margin-right: 4px;">
+                        <p class="popup__form-text">E mail</p>
+                        <input type="email" id="E-mail" placeholder="example@mail.com" required>
+                    </div>
+                    <div class="popup__form-group" style="margin-right: 4px;">
+                        <p class="popup__form-text">Choose a date</p>
+                        <input type="date" id="date" placeholder="20.10.2025" required>
+                    </div>
+                    <p class="popup__form-text">Subscrube to offers and updates</p>
+                    <div class="popup__checkbox-group">
+                        <input type="checkbox" id="subscribe2" required>
+                        <label for="subscribe2" class="popup__checkbox-label">
+                            <span class="popup__custom-box" aria-hidden="true">
+                                <svg class="popup-custom-check" width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                    <path d="M2.08203 4.99999L4.16536 7.08332L8.33203 2.91666" stroke="#057575" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </span>
+                            <span>Sign me up for exclusive offers and updates from NanoMeikki</span>
+                        </label>
+                    </div>
+                    <button type="submit" class="popup__button">Send</button>
+                </form>
+                <button>
+                    <svg class="popup__close-book" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M28.125 11.875L11.875 28.125M11.875 11.875L28.125 28.125" stroke="#057575" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </button>
+            </div>
+        </div>
     </main>
     <footer class="footer">
         <div class="footer__background"><img src="image/footer__background.png" alt=""></div>
@@ -249,12 +364,12 @@
                             </svg>
                         </a>
                     </div>
-                    <a href="#" class="footer__logo"><img src="image/logo.svg" alt=""></a>
+                    <a href="index.html" class="footer__logo"><img src="image/logo.svg" alt=""></a>
                 </div>
                 <div class="footer__right">
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63511.25075815058!2d24.916290433129912!3d60.168705053460315!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4692092facc092cd%3A0x3199c4c0b127d100!2zTWVrYWFuaWtvbmthdHUgMTcsIDAwODgwIEhlbHNpbmtpLCDQpNC40L3Qu9GP0L3QtNC40Y8!5e0!3m2!1sru!2sru!4v1760309573845!5m2!1sru!2sru" width="720" height="487" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
-                <a href="#" class="footer__logo-mob">
+                <a href="index.html" class="footer__logo-mob">
                     <img src="image/logo.svg" alt="">
                 </a>
             </div>

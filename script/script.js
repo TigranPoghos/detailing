@@ -205,14 +205,14 @@ document.addEventListener("DOMContentLoaded", function(){
     openButtons.forEach(btn => {
         btn.addEventListener('click', (e) => {
             e.preventDefault();
-            popup.classList.add('active');
+            popup?.classList.add('active');
             body.classList.add('active')
             opaciteMain.classList.add('active')
         });
     });
 
     closeButton?.addEventListener('click', () => {
-        popup.classList.remove('active');
+        popup?.classList.remove('active');
         body.classList.remove('active')
         opaciteMain.classList.remove('active')
     });
@@ -222,7 +222,7 @@ document.addEventListener("DOMContentLoaded", function(){
     const isClickOutside = !popup.contains(e.target) && !e.target.closest('[data-popup="consultation"]');
     
         if (isPopupOpen && isClickOutside) {
-            popup.classList.remove('active');
+            popup?.classList.remove('active');
             body.classList.remove('active');
             opaciteMain.classList.remove('active');
         }
@@ -235,14 +235,14 @@ document.addEventListener("DOMContentLoaded", function(){
     openButtonsBook.forEach(btn => {
         btn.addEventListener('click', (e) => {
             e.preventDefault();
-            popupBook.classList.add('active');
+            popupBook?.classList.add('active');
             body.classList.add('active')
             opaciteMain.classList.add('active')
         });
     });
 
     closeButtonBook?.addEventListener('click', () => {
-        popupBook.classList.remove('active');
+        popupBook?.classList.remove('active');
         body.classList.remove('active')
         opaciteMain.classList.remove('active')
     });
@@ -252,7 +252,7 @@ document.addEventListener("DOMContentLoaded", function(){
     const isClickOutside = !popupBook.contains(e.target) && !e.target.closest('[data-popup="book"]');
     
         if (isPopupBookOpen && isClickOutside) {
-            popupBook.classList.remove('active');
+            popupBook?.classList.remove('active');
             body.classList.remove('active');
             opaciteMain.classList.remove('active');
         }
