@@ -1536,6 +1536,7 @@ body.active {
 .nano__blog {
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 .nano__blog-buttons {
   display: flex;
