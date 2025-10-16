@@ -54,7 +54,7 @@
                             </button>
                         </div>
                     </div>
-                    <button data-popup="consultation" type="button" class="header__button">Free consultation</button>
+                    <button type="button" data-popup="consultation" class="header__button">Free consultation</button>
                     <div class="header__burger-button">
                         <span class="header__burger-button-line"></span>
                         <span class="header__burger-button-line"></span>
@@ -62,11 +62,11 @@
                     </div>
                     <div class="header__burger">
                         <ul>
-                            <li><button type="button" class="header__burger-item">Our Services</button></li>
-                            <li><button type="button" class="header__burger-item">Pricing</button></li>
-                            <li><button type="button" class="header__burger-item">Online Booking</button></li>
-                            <li><button type="button" class="header__burger-item">About Us</button></li>
-                            <li><button type="button" class="header__burger-item">Contacts</button></li>
+                            <li><button type="button" class="header__burger-item btn-service">Our Services</button></li>
+                            <li><a href="price.html" class="header__burger-item">Pricing</a></li>
+                            <li><a href="blog.html" class="header__burger-item">Blog</a></li>
+                            <li><a href="about.html" class="header__burger-item">About Us</a></li>
+                            <li><a href="contact.html" class="header__burger-item">Contacts</a></li>
                             <li><button data-popup="consultation" type="button" class="header__burger-item">Free consultation</button></li>
                         </ul>
                     </div>
@@ -81,15 +81,44 @@
             <div class="container">
                 <div class="krytex__row row">
                     <div class="krytex__top">
-                        <img src="image/krytex__gallery.jpg" alt="">
-                        <img src="image/krytex__gallery.jpg" alt="">
-                        <img src="image/krytex__gallery.jpg" alt="">
+                        <picture>
+                            <source srcset="image/gif.gif" type="image/gif">
+                            <source srcset="image/krytex__gallery.jpg" type="image/jpg">
+                            <img src="image/krytex__gallery.jpg" alt="">
+                        </picture>
+                        <picture>
+                            <source srcset="image/gif.gif" type="image/gif">
+                            <source srcset="image/krytex__gallery.jpg" type="image/jpg">
+                            <img src="image/krytex__gallery.jpg" alt="">
+                        </picture>
+                        <picture>
+                            <source srcset="image/krytex__gallery.jpg" type="image/jpg">
+                            <img src="image/krytex__gallery.jpg" alt="">
+                        </picture>
                     </div>
                     <div class="swiper mySwiperKrytex krytex__slider">
                         <div class="swiper-wrapper">
-                            <div class="swiper-slide"><img src="image/krytex__gallery.jpg" alt=""></div>
-                            <div class="swiper-slide"><img src="image/krytex__gallery.jpg" alt=""></div>
-                            <div class="swiper-slide"><img src="image/krytex__gallery.jpg" alt=""></div>
+                            <div class="swiper-slide">
+                                <picture>
+                                    <source srcset="image/gif.gif" type="image/gif">
+                                    <source srcset="image/krytex__gallery.jpg" type="image/jpg">
+                                    <img src="image/krytex__gallery.jpg" alt="">
+                                </picture>
+                            </div>
+                            <div class="swiper-slide">
+                                <picture>
+                                    <source srcset="image/gif.gif" type="image/gif">
+                                    <source srcset="image/krytex__gallery.jpg" type="image/jpg">
+                                    <img src="image/krytex__gallery.jpg" alt="">
+                                </picture>
+                            </div>
+                            <div class="swiper-slide">
+                                <picture>
+                                    <source srcset="image/gif.gif" type="image/gif">
+                                    <source srcset="image/krytex__gallery.jpg" type="image/jpg">
+                                    <img src="image/krytex__gallery.jpg" alt="">
+                                </picture>
+                            </div>
                         </div>
                     </div>
                     <div class="krytex__bottom">
@@ -500,7 +529,7 @@
                     </div>
                     <h1 class="additional__title">Need additional care services for your car?</h1>
                     <h3 class="additional__subtitle">We have selected our top auto maintenance services for you</h3>
-                    <button type="button" class="additional__button">
+                    <button type="button" class="additional__button btn-service">
                         <span>All services</span>
                         <svg width="12" height="24" viewBox="0 0 12 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path class="additional__button-svg" fill-rule="evenodd" clip-rule="evenodd" d="M9.72168 13.2221L4.34415 19L3 17.5558L7.70546 12.5L3 7.44422L4.34415 6L9.72168 11.7779C9.89989 11.9694 10 12.2292 10 12.5C10 12.7708 9.89989 13.0306 9.72168 13.2221Z" fill="#057575" />
@@ -510,7 +539,7 @@
                         <div class="additional__item">
                             <div class="additional__item-left">
                                 <img src="image/additional-item.jpg" alt="">
-                                <a href="#">
+                                <a href="#" class="btn-service">
                                     <span>Learn more</span>
                                     <svg width="13" height="24" viewBox="0 0 13 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path fill-rule="evenodd" clip-rule="evenodd" d="M10.2217 12.6666L4.84415 18L3.5 16.6669L8.20546 12L3.5 7.33312L4.84415 6L10.2217 11.3334C10.3999 11.5102 10.5 11.75 10.5 12C10.5 12.25 10.3999 12.4898 10.2217 12.6666Z" fill="#057575" />
@@ -529,7 +558,7 @@
                         <div class="additional__item">
                             <div class="additional__item-left">
                                 <img src="image/additional-item.jpg" alt="">
-                                <a href="#">
+                                <a href="#" class="btn-service">
                                     <span>Learn more</span>
                                     <svg width="13" height="24" viewBox="0 0 13 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path fill-rule="evenodd" clip-rule="evenodd" d="M10.2217 12.6666L4.84415 18L3.5 16.6669L8.20546 12L3.5 7.33312L4.84415 6L10.2217 11.3334C10.3999 11.5102 10.5 11.75 10.5 12C10.5 12.25 10.3999 12.4898 10.2217 12.6666Z" fill="#057575" />
@@ -548,7 +577,7 @@
                         <div class="additional__item">
                             <div class="additional__item-left">
                                 <img src="image/additional-item.jpg" alt="">
-                                <a href="#">
+                                <a href="#" class="btn-service">
                                     <span>Learn more</span>
                                     <svg width="13" height="24" viewBox="0 0 13 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path fill-rule="evenodd" clip-rule="evenodd" d="M10.2217 12.6666L4.84415 18L3.5 16.6669L8.20546 12L3.5 7.33312L4.84415 6L10.2217 11.3334C10.3999 11.5102 10.5 11.75 10.5 12C10.5 12.25 10.3999 12.4898 10.2217 12.6666Z" fill="#057575" />
@@ -698,9 +727,9 @@
                         <p class="popup__form-text">E mail</p>
                         <input type="email" id="E-mail" placeholder="example@mail.com" required>
                     </div>
-                    <div class="popup__form-group" style="margin-right: 4px;">
+                    <div class="popup__form-group popup__form-group-date" style="margin-right: 4px;">
                         <p class="popup__form-text">Choose a date</p>
-                        <input type="date" id="date" placeholder="20.10.2025" required>
+                        <input class="popup__form-data" type="date" id="date" placeholder="20.10.2025" required>
                     </div>
                     <p class="popup__form-text">Subscrube to offers and updates</p>
                     <div class="popup__checkbox-group">
@@ -788,6 +817,8 @@
         </div>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" type="text/javascript"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery.maskedinput@1.4.1/src/jquery.maskedinput.min.js" type="text/javascript"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="script/script.js"></script>
 </body>

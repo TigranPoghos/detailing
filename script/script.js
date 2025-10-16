@@ -317,124 +317,162 @@ document.addEventListener("DOMContentLoaded", function(){
 
 
 
+    const tabs = document.querySelectorAll('.pricing__tabs-btn');
+    const asides = document.querySelectorAll('.pricing__aside');
+    const tables = document.querySelectorAll('.pricing__content-table');
 
-
-
-
-
-
-  const tabs = document.querySelectorAll('.pricing__tabs-btn');
-const asides = document.querySelectorAll('.pricing__aside');
-const tables = document.querySelectorAll('.pricing__content-table');
-
-function isMobile() {
-  return window.innerWidth <= 768;
-}
-
-function initPricing() {
-  const firstTab = tabs[0];
-  const type = firstTab.dataset.type;
-
-  // Активная первая таб
-  tabs.forEach(t => t.classList.remove('active'));
-  firstTab.classList.add('active');
-
-  // Активный первый aside
-  asides.forEach(aside => {
-    aside.classList.toggle('active', aside.dataset.type === type);
-    const buttons = aside.querySelectorAll('.pricing__aside-button');
-
-    if (isMobile()) {
-      // На мобилке все кнопки и таблицы внутри aside не активны
-      buttons.forEach(b => b.classList.remove('active'));
-      tables.forEach(table => table.classList.remove('active'));
-    } else {
-      // На десктопе активна первая кнопка и таблица
-      buttons.forEach((b, i) => b.classList.toggle('active', i === 0));
-      const firstTableName = buttons[0]?.dataset.table;
-      tables.forEach(table => {
-        table.classList.toggle('active', table.dataset.table === firstTableName &&
-          table.closest('.pricing__bottom').querySelector(`.pricing__aside[data-type="${type}"]`)
-        );
-      });
+    function isMobile() {
+    return window.innerWidth <= 768;
     }
-  });
-}
 
-// Переключение табов
-tabs.forEach(tab => {
-  tab.addEventListener('click', () => {
-    const type = tab.dataset.type;
+    function initPricing() {
+    const firstTab = tabs[0];
+    const type = firstTab?.dataset.type;
 
     tabs.forEach(t => t.classList.remove('active'));
-    tab.classList.add('active');
+    firstTab?.classList.add('active');
 
     asides.forEach(aside => {
-      aside.classList.toggle('active', aside.dataset.type === type);
-      const buttons = aside.querySelectorAll('.pricing__aside-button');
+        aside.classList.toggle('active', aside.dataset.type === type);
+        const buttons = aside.querySelectorAll('.pricing__aside-button');
 
-      if (isMobile()) {
+        if (isMobile()) {
         buttons.forEach(b => b.classList.remove('active'));
         tables.forEach(table => table.classList.remove('active'));
-      } else {
+        } else {
         buttons.forEach((b, i) => b.classList.toggle('active', i === 0));
         const firstTableName = buttons[0]?.dataset.table;
         tables.forEach(table => {
-          table.classList.toggle('active', table.dataset.table === firstTableName &&
+            table.classList.toggle('active', table.dataset.table === firstTableName &&
             table.closest('.pricing__bottom').querySelector(`.pricing__aside[data-type="${type}"]`)
-          );
+            );
         });
-      }
-    });
-  });
-});
-
-// Переключение таблиц внутри aside
-asides.forEach(aside => {
-  const buttons = aside.querySelectorAll('.pricing__aside-button');
-  buttons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const tableName = btn.dataset.table;
-      const type = aside.dataset.type;
-
-      const relatedTables = Array.from(tables).filter(t => t.closest('.pricing__bottom').querySelector(`.pricing__aside[data-type="${type}"]`));
-      const table = relatedTables.find(t => t.dataset.table === tableName);
-
-      if (!table) return;
-
-      if (isMobile()) {
-        // Мобилка: toggle таблицы прямо под кнопкой
-        const isActive = btn.classList.contains('active');
-        btn.classList.toggle('active', !isActive);
-
-        if (!isActive) {
-          // Вставляем таблицу сразу после кнопки
-          btn.insertAdjacentElement('afterend', table);
-          table.classList.add('active');
-        } else {
-          table.classList.remove('active');
         }
-      } else {
-        // Десктоп: стандартное поведение
-        buttons.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        relatedTables.forEach(t => t.classList.toggle('active', t.dataset.table === tableName));
-      }
     });
-  });
-});
+    }
 
-window.addEventListener('load', initPricing);
-window.addEventListener('resize', initPricing);
+    tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+        const type = tab.dataset.type;
+
+        tabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+
+        asides.forEach(aside => {
+        aside.classList.toggle('active', aside.dataset.type === type);
+        const buttons = aside.querySelectorAll('.pricing__aside-button');
+
+        if (isMobile()) {
+            buttons.forEach(b => b.classList.remove('active'));
+            tables.forEach(table => table.classList.remove('active'));
+        } else {
+            buttons.forEach((b, i) => b.classList.toggle('active', i === 0));
+            const firstTableName = buttons[0]?.dataset.table;
+            tables.forEach(table => {
+            table.classList.toggle('active', table.dataset.table === firstTableName &&
+                table.closest('.pricing__bottom').querySelector(`.pricing__aside[data-type="${type}"]`)
+            );
+            });
+        }
+        });
+    });
+    });
+
+    asides.forEach(aside => {
+    const buttons = aside.querySelectorAll('.pricing__aside-button');
+    buttons.forEach(btn => {
+        btn.addEventListener('click', () => {
+        const tableName = btn.dataset.table;
+        const type = aside.dataset.type;
+
+        const relatedTables = Array.from(tables).filter(t => t.closest('.pricing__bottom').querySelector(`.pricing__aside[data-type="${type}"]`));
+        const table = relatedTables.find(t => t.dataset.table === tableName);
+
+        if (!table) return;
+
+        if (isMobile()) {
+            const isActive = btn.classList.contains('active');
+            btn.classList.toggle('active', !isActive);
+
+            if (!isActive) {
+            btn.insertAdjacentElement('afterend', table);
+            table.classList.add('active');
+            } else {
+            table.classList.remove('active');
+            }
+        } else {
+            buttons.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            relatedTables.forEach(t => t.classList.toggle('active', t.dataset.table === tableName));
+        }
+        });
+    });
+    });
+
+    window.addEventListener('load', initPricing);
+    window.addEventListener('resize', initPricing);
 
 
 
 
 
+    $.fn.setCursorPosition = function(pos) {
+    const el = $(this).get(0);
+    if (el.setSelectionRange) {
+        el.setSelectionRange(pos, pos);
+    } else if (el.createTextRange) {
+        const range = el.createTextRange();
+        range.collapse(true);
+        range.moveEnd('character', pos);
+        range.moveStart('character', pos);
+        range.select();
+    }
+    return this;
+    };
+
+    $('input[type="tel"]')
+    .mask('+358 (999) 999 99 99', { autoclear: false })
+    .on('click', function(e) {
+        const value = $(this).val();
+
+        const clean = value.replace(/[^0-9]/g, '');
+
+        if (clean.length <= 3) {
+        e.preventDefault();
+        $(this).setCursorPosition(6);
+        }
+    });
+
+
+      
 
 
 
+    const ButtonService = document.querySelectorAll('.btn-service');
+    const TargetService = document.querySelector('.target__service');
+    const isOnIndexPage = window.location.pathname.includes('index.html');
 
+    ButtonService?.forEach(button => {
+        button?.addEventListener('click', function() {
+            if (isOnIndexPage) {
+                if (TargetService) {
+                    window.scrollTo({ top: TargetService.offsetTop, behavior: 'smooth' });
+                }
+            } else {
+                localStorage.setItem('scrollToPartner', true);
+                window.location.href = 'index.html';
+            }
+        });
+    });
+
+    if (isOnIndexPage && localStorage.getItem('scrollToPartner')) {
+        setTimeout(() => {
+            if (TargetService) {
+                window.scrollTo({ top: TargetService.offsetTop, behavior: 'smooth' });
+            }
+            localStorage.removeItem('scrollToPartner');
+        }, 500);
+    }
 
 
 

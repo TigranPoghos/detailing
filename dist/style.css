@@ -249,7 +249,7 @@ body.active {
   justify-content: end;
   margin-bottom: 10px;
 }
-.header__burger ul li button {
+.header__burger ul li button, .header__burger ul li a {
   font-family: var(--font-family);
   font-weight: 500;
   font-size: 18px;
@@ -1064,12 +1064,17 @@ body.active {
   display: flex;
   margin-bottom: 30px;
 }
-.krytex__top img {
+.krytex__top picture {
+  display: inline-block;
   width: 33%;
   margin-right: 2px;
   border-radius: 5px;
 }
-.krytex__top img:last-child {
+.krytex__top picture img, .krytex__top picture video {
+  border-radius: 5px;
+  height: 100%;
+}
+.krytex__top picture:last-child {
   margin-right: 0;
 }
 .krytex__bottom {
@@ -1647,6 +1652,9 @@ body.active {
 .premium__right img {
   border-radius: 10px;
 }
+.premium__right-img {
+  height: 630px;
+}
 .premium__right-mob {
   display: none;
 }
@@ -1809,6 +1817,28 @@ body.active {
 }
 .popup__form-select span.active {
   display: flex;
+}
+.popup__form-group-date {
+  position: relative;
+}
+.popup__form-data::-webkit-calendar-picker-indicator {
+  opacity: 0;
+  position: absolute;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+.popup__form-data::after {
+  content: "";
+  position: absolute;
+  right: 15px;
+  top: 70%;
+  transform: translateY(-50%);
+  width: 24px;
+  height: 24px;
+  background: url("../image/calendar.png") no-repeat center/contain;
+  pointer-events: none;
 }
 .popup__book {
   display: none;
@@ -3737,7 +3767,7 @@ body.active {
   }
   .premium__right-img {
     width: 100%;
-    height: 432px;
+    height: auto;
   }
   .premium__left-text {
     font-size: 14px;
@@ -3918,6 +3948,24 @@ body.active {
   }
   .benefit__item-arrow {
     display: none;
+  }
+  .popup__book {
+    max-height: 80%;
+    max-width: 90%;
+  }
+  .popup__book .popup {
+    max-height: 80%;
+    overflow-y: scroll;
+    padding: 20px 15px;
+  }
+  .popup__book .popup__title {
+    max-width: 90%;
+  }
+  .popup__book .popup__form-group {
+    margin-right: 0 !important;
+  }
+  .popup__book .popup__form-group-half {
+    max-width: none;
   }
 }
 @media (max-width: 490px) {

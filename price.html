@@ -62,11 +62,11 @@
                     </div>
                     <div class="header__burger">
                         <ul>
-                            <li><button type="button" class="header__burger-item">Our Services</button></li>
-                            <li><button type="button" class="header__burger-item">Pricing</button></li>
-                            <li><button type="button" class="header__burger-item">Online Booking</button></li>
-                            <li><button type="button" class="header__burger-item">About Us</button></li>
-                            <li><button type="button" class="header__burger-item">Contacts</button></li>
+                            <li><button type="button" class="header__burger-item btn-service">Our Services</button></li>
+                            <li><a href="price.html" class="header__burger-item">Pricing</a></li>
+                            <li><a href="blog.html" class="header__burger-item">Blog</a></li>
+                            <li><a href="about.html" class="header__burger-item">About Us</a></li>
+                            <li><a href="contact.html" class="header__burger-item">Contacts</a></li>
                             <li><button data-popup="consultation" type="button" class="header__burger-item">Free consultation</button></li>
                         </ul>
                     </div>
@@ -855,9 +855,9 @@
                         <p class="popup__form-text">E mail</p>
                         <input type="email" id="E-mail" placeholder="example@mail.com" required>
                     </div>
-                    <div class="popup__form-group" style="margin-right: 4px;">
+                    <div class="popup__form-group popup__form-group-date" style="margin-right: 4px;">
                         <p class="popup__form-text">Choose a date</p>
-                        <input type="date" id="date" placeholder="20.10.2025" required>
+                        <input class="popup__form-data" type="date" id="date" placeholder="20.10.2025" required>
                     </div>
                     <p class="popup__form-text">Subscrube to offers and updates</p>
                     <div class="popup__checkbox-group">
@@ -945,6 +945,8 @@
         </div>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" type="text/javascript"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery.maskedinput@1.4.1/src/jquery.maskedinput.min.js" type="text/javascript"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="script/script.js"></script>
 </body>
