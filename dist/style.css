@@ -1643,6 +1643,11 @@ body.active {
   box-sizing: border-box;
 }
 
+.anim {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
 .premium__row {
   padding: 116px 0 50px 0;
 }
