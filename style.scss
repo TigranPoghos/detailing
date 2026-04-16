@@ -648,13 +648,6 @@ body {
         justify-content: center;
     }
 
-    &__background {
-        position: absolute;
-        bottom: -217px;
-        right: -251px;
-        z-index: -1;
-    }
-
     &__item {
         display: flex;
         flex-direction: column;
@@ -710,6 +703,13 @@ body {
                 color: var(--white);
             }
         }
+    }
+
+    &__background {
+        position: absolute;
+        bottom: -217px;
+        right: -251px;
+        z-index: -1;
     }
 }
 

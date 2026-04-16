@@ -574,12 +574,6 @@ body.active {
   flex-wrap: wrap;
   justify-content: center;
 }
-.service__background {
-  position: absolute;
-  bottom: -217px;
-  right: -251px;
-  z-index: -1;
-}
 .service__item {
   display: flex;
   flex-direction: column;
@@ -629,6 +623,12 @@ body.active {
 .service__item-button:hover {
   background: var(--blue);
   color: var(--white);
+}
+.service__background {
+  position: absolute;
+  bottom: -217px;
+  right: -251px;
+  z-index: -1;
 }
 
 .work {
